@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>007 Wallpapers · Free 4K wallpapers</title>
+<title>007 Wallpapers · 4K wallpapers</title>
 <meta name="description" content="Free, hand-made 4K wallpapers for desktop and phone by 007. No ads, no sign-up.">
 <meta property="og:title" content="007 Wallpapers">
 <meta property="og:description" content="Free, hand-made 4K wallpapers for desktop and phone.">
 <meta property="og:image" content="champagne%20(1).jpg">
 <meta name="theme-color" content="#0b0b0c">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia' font-size='24' fill='%23c9a96a'%3E007%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230b0b0c%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2241%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2224%22%20fill%3D%22%23c9a96a%22%20letter-spacing%3D%221%22%3E007%3C/text%3E%3C/svg%3E%0A" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -106,6 +106,51 @@
   .nav-arrows button{flex:1;background:none;border:1px solid var(--line);color:var(--dim);padding:12px;font:400 11px var(--sans);text-transform:uppercase;letter-spacing:.2em;cursor:pointer}
   .nav-arrows button:hover{color:var(--ivory);border-color:var(--gold)}
 
+
+  /* shop */
+  #shop{border-top:1px solid var(--line)}
+  .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:22px}
+  .pack{background:var(--bg2);border:1px solid var(--line);cursor:pointer;transition:border-color .4s,transform .4s;display:flex;flex-direction:column}
+  .pack:hover,.pack.on{border-color:rgba(201,169,106,.55)}
+  .pack .cov{aspect-ratio:4/5;background:center/cover;position:relative;overflow:hidden}
+  .pack .cov::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,11,12,.9))}
+  .pack .cov b{position:absolute;left:22px;bottom:18px;z-index:1;font:400 34px/1 var(--serif)}
+  .pack .meta{padding:18px 22px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .pack .meta span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .pack .meta em{font:400 26px/1 var(--serif);font-style:normal;color:var(--gold2)}
+  .bundle{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border:1px solid rgba(201,169,106,.45);background:linear-gradient(120deg,#17130c,#121214 60%);padding:30px 34px;margin-bottom:72px}
+  .bundle h3{font:400 38px/1 var(--serif)}
+  .bundle p{color:var(--dim);font-size:14px;margin-top:8px}
+  .bundle .right{display:flex;align-items:center;gap:26px}
+  .price{font:400 44px/1 var(--serif);color:var(--gold2)}
+  .price s{font-size:22px;color:var(--dim);margin-right:10px}
+  .buy{background:var(--gold);color:var(--bg);border:0;padding:16px 30px;font:500 11px var(--sans);text-transform:uppercase;letter-spacing:.28em;cursor:pointer;transition:background .3s}
+  .buy:hover{background:var(--gold2)}
+  .sgrid{columns:4 240px;column-gap:18px}
+  .sgrid .item{margin-bottom:18px}
+  .tag{position:absolute;top:14px;left:14px;z-index:1;background:rgba(11,11,12,.7);backdrop-filter:blur(6px);border:1px solid var(--line);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;color:var(--gold2)}
+
+  /* checkout */
+  .co{position:fixed;inset:0;z-index:60;background:rgba(5,5,6,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+  .co.open{opacity:1;pointer-events:auto}
+  .box{width:100%;max-width:520px;max-height:calc(100vh - 40px);overflow:auto;background:var(--bg2);border:1px solid var(--line);padding:40px 38px;position:relative}
+  .box h3{font:400 42px/1 var(--serif);margin-top:16px}
+  .row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .box dl{margin:26px 0 0;border-top:1px solid var(--line)}
+  .row dt{color:var(--dim)} .row dd{font-variant-numeric:tabular-nums}
+  .code{font-family:ui-monospace,Consolas,monospace;color:var(--gold2);cursor:pointer}
+  .tabs{display:flex;gap:6px;margin:26px 0 18px;border:1px solid var(--line);border-radius:999px;padding:5px}
+  .tabs button{flex:1;background:none;border:0;color:var(--dim);font:400 11px var(--sans);text-transform:uppercase;letter-spacing:.2em;padding:10px;border-radius:999px;cursor:pointer}
+  .tabs button.on{background:var(--ivory);color:var(--bg)}
+  .pay{font-size:14px;color:var(--dim)}
+  .pay b{color:var(--ivory);font-weight:400}
+  .addr{display:block;margin-top:8px;padding:12px 14px;border:1px solid var(--line);font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--ivory);word-break:break-all;cursor:pointer}
+  ol.steps{margin:22px 0 26px 18px;color:var(--dim);font-size:14px}
+  ol.steps li{padding:4px 0} ol.steps b{color:var(--ivory);font-weight:400}
+  .box .dl{width:100%;border:0;cursor:pointer}
+  @media (max-width:1000px){.packs{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){#sf{flex-wrap:wrap;border-radius:22px;justify-content:center;width:100%}#sf button{padding:9px 11px;letter-spacing:.14em}.packs{gap:12px}.pack .cov b{font-size:26px;left:14px}.pack .meta{padding:14px;flex-direction:column;align-items:flex-start}.bundle{padding:24px}.bundle .right{width:100%;justify-content:space-between}.box{padding:32px 22px}}
+
   @media (max-width:900px){
     .links{display:none}
     .about{grid-template-columns:1fr;gap:48px}
@@ -123,16 +168,16 @@
 <nav id="nav">
   <div class="wrap">
     <a class="mark" href="#">007<span>·</span>WALLS</a>
-    <div class="links"><a href="#collection">Collection</a><a href="#about">About</a><a href="https://discord.gg/FjSraGbJPa">Discord</a></div>
+    <div class="links"><a href="#collection">Free</a><a href="#shop">Shop</a><a href="#about">About</a><a href="https://discord.gg/FjSraGbJPa">Discord</a></div>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Free · 4K · Desktop &amp; Phone</div>
+    <div class="eyebrow">4K · Desktop &amp; Phone</div>
     <h1>Wallpapers,<br><em>quietly made.</em></h1>
-    <p class="lead">A small collection of hand-made wallpapers for your desktop and phone. Free to download, no sign-up, no ads.</p>
-    <a class="scroll" href="#collection"><i></i>View the collection</a>
+    <p class="lead">A small collection of hand-made wallpapers for your desktop and phone. A free collection, plus Signature packs for the ones who want more.</p>
+    <a class="scroll" href="#collection"><i></i>View the collection</a><a class="scroll" href="#shop" style="margin-left:36px"><i></i>Signature packs</a>
   </div>
 </header>
 
@@ -140,7 +185,7 @@
 <section id="collection">
   <div class="wrap">
     <div class="head">
-      <h2>The Collection<small id="count">Loading…</small></h2>
+      <h2>Free Collection<small id="count">Loading…</small></h2>
       <div class="filters" role="tablist">
         <button class="on" data-f="all">All</button>
         <button data-f="desktop">Desktop</button>
@@ -151,19 +196,37 @@
   </div>
 </section>
 
+
+<section id="shop">
+  <div class="wrap">
+    <div class="head">
+      <h2>Signature Packs<small>Original 4K wallpapers, desktop and phone. Pay with Whish or crypto.</small></h2>
+      <div class="filters" id="sf">
+        <button class="on" data-f="all">All</button><button data-f="abstract">Abstract</button><button data-f="mono">Mono</button><button data-f="city">City</button><button data-f="clouds">Clouds</button>
+      </div>
+    </div>
+    <div class="packs" id="packs"></div>
+    <div class="bundle">
+      <div><div class="eyebrow">Best value</div><h3 style="margin-top:14px">The Full Signature Set</h3><p>All 4 packs · 12 wallpapers · 24 files (desktop + phone)</p></div>
+      <div class="right"><div class="price" id="bPrice"></div><button class="buy" data-buy="all">Buy the set</button></div>
+    </div>
+    <div class="sgrid" id="sgrid"></div>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap about">
     <div>
       <div class="eyebrow">About</div>
       <h2 style="margin-top:24px">Made by 007.</h2>
-      <p style="margin-top:28px">Every wallpaper here is made from scratch and shared for free. New drops land in the 007s community Discord first.</p>
-      <p>Use them on any screen you own. Please don't resell them.</p>
+      <p style="margin-top:28px">Every wallpaper here is made from scratch. The free collection stays free. New drops land in the 007s community Discord first.</p>
+      <p>Signature packs are paid and delivered through the Discord. Use them on any screen you own. Please don't share or resell them.</p>
       <a class="btn" href="https://discord.gg/FjSraGbJPa">Join the Discord →</a>
     </div>
     <div class="stats">
       <div><b id="sTotal">–</b><span>Wallpapers</span></div>
       <div><b>4K</b><span>Desktop</span></div>
-      <div><b>Free</b><span>Always</span></div>
+      <div><b>4</b><span>Signature packs</span></div>
     </div>
   </div>
 </section>
@@ -191,6 +254,29 @@
     <p class="note">Free for personal use. Right-click the image and choose "Set as desktop background", or save it on your phone.</p>
     <div class="nav-arrows"><button id="prev">← Prev</button><button id="next">Next →</button></div>
   </aside>
+</div>
+
+
+<div class="co" id="co" aria-hidden="true">
+  <div class="box">
+    <button class="x" id="coX" aria-label="Close">×</button>
+    <div class="eyebrow">Checkout</div>
+    <h3 id="coName">Pack</h3>
+    <dl>
+      <div class="row"><dt>Includes</dt><dd id="coInc"></dd></div>
+      <div class="row"><dt>Price</dt><dd id="coPrice"></dd></div>
+      <div class="row"><dt>Order code</dt><dd class="code" id="coCode" title="Click to copy"></dd></div>
+    </dl>
+    <div class="tabs" id="coTabs"><button class="on" data-m="whish">Whish Money</button><button data-m="crypto">Crypto</button></div>
+    <div class="pay" id="coPay"></div>
+    <ol class="steps">
+      <li>Send <b id="coAmt"></b> with the method above.</li>
+      <li>Open a ticket in the Discord and paste your order code <b id="coCode2"></b> with a payment screenshot.</li>
+      <li>Get your full-quality files in the ticket, usually within a few hours.</li>
+    </ol>
+    <a class="dl" id="coGo" href="https://discord.gg/FjSraGbJPa" target="_blank" rel="noopener">Open a ticket on Discord</a>
+    <p class="note">Previews on this site are watermarked. Purchased files are full 4K with no watermark.</p>
+  </div>
 </div>
 
 <script>
@@ -235,8 +321,8 @@ addEventListener('keydown', e => {
   if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') open(cur - 1); if (e.key === 'ArrowRight') open(cur + 1);
 });
 
-document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('on', x === b)); render(b.dataset.f);
+document.querySelectorAll('#collection .filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#collection .filters button').forEach(x => x.classList.toggle('on', x === b)); render(b.dataset.f);
 });
 
 const nav = document.getElementById('nav');
@@ -245,6 +331,70 @@ addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { 
 fetch('wallpapers.json').then(r => r.json()).then(list => {
   all = list; document.getElementById('sTotal').textContent = list.length; render('all');
 }).catch(() => { document.getElementById('count').textContent = 'Could not load wallpapers.json'; });
+
+// ===== Shop settings: edit these =====
+const PRICES = { pack: 3.99, all: 9.99 };   // USD
+const WHISH = '';                            // your Whish number, e.g. '+961 XX XXX XXX'. Empty = sent in ticket.
+const CRYPTO = { 'USDT (TRC20)': '', 'BTC': '' }; // wallet addresses. Empty = sent in ticket.
+const PACKS = { abstract: 'Abstract', mono: 'Mono', city: 'City', clouds: 'Clouds' };
+
+let store = [], sShown = [], buying = 'all', method = 'whish';
+const $ = id => document.getElementById(id);
+const usd = n => '$' + n.toFixed(2);
+
+function renderShop(f) {
+  $('packs').innerHTML = Object.entries(PACKS).map(([k, n]) => {
+    const cov = store.find(s => s.pack === k);
+    return `<div class="pack${f === k ? ' on' : ''}" data-p="${k}">
+      <div class="cov" style="background-image:url('${cov ? cov.phone : ''}')"><b>${n}</b></div>
+      <div class="meta"><span>3 wallpapers · desktop + phone</span><em>${usd(PRICES.pack)}</em></div></div>`;
+  }).join('');
+  $('packs').querySelectorAll('.pack').forEach(el => el.onclick = () => openBuy(el.dataset.p));
+  sShown = f === 'all' ? store : store.filter(s => s.pack === f);
+  $('sgrid').innerHTML = sShown.map((s, i) => `
+    <figure class="item" data-i="${i}"><span class="tag">${PACKS[s.pack]} pack</span>
+      <img src="${esc(s.desktop)}" alt="${esc(s.name)} wallpaper preview" loading="lazy" width="1200" height="675">
+      <figcaption class="cap"><b>${esc(s.name)}</b><span>${usd(PRICES.pack)} pack</span></figcaption></figure>`).join('');
+  $('sgrid').querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 8) * 60 + 'ms'; io.observe(el); el.onclick = () => openBuy(sShown[i].pack); });
+}
+
+function payHtml() {
+  if (method === 'whish') return WHISH
+    ? `Send to Whish Money number:<span class="addr" data-copy="${esc(WHISH)}">${esc(WHISH)}</span>`
+    : `Pay with <b>Whish Money</b>. The Whish number is sent to you in your ticket.`;
+  const rows = Object.entries(CRYPTO).filter(([, a]) => a);
+  return rows.length
+    ? rows.map(([n, a]) => `<b>${esc(n)}</b><span class="addr" data-copy="${esc(a)}">${esc(a)}</span>`).join('<br>')
+    : `Pay with <b>USDT, BTC or other crypto</b>. The wallet address is sent to you in your ticket.`;
+}
+
+function openBuy(p) {
+  buying = p;
+  const all = p === 'all', price = all ? PRICES.all : PRICES.pack;
+  const code = `007-${(all ? 'SET' : p.toUpperCase())}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  $('coName').textContent = all ? 'Full Signature Set' : `${PACKS[p]} Pack`;
+  $('coInc').textContent = all ? '12 wallpapers · 24 files' : '3 wallpapers · 6 files';
+  $('coPrice').textContent = usd(price); $('coAmt').textContent = usd(price);
+  $('coCode').textContent = code; $('coCode2').textContent = code;
+  $('coPay').innerHTML = payHtml(); bindCopy();
+  $('co').classList.add('open'); $('co').setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+}
+function closeBuy() { $('co').classList.remove('open'); $('co').setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+function copy(el, txt) { navigator.clipboard && navigator.clipboard.writeText(txt).then(() => { const o = el.textContent; el.textContent = 'Copied'; setTimeout(() => el.textContent = o, 1100); }); }
+function bindCopy() { $('coPay').querySelectorAll('[data-copy]').forEach(el => el.onclick = () => copy(el, el.dataset.copy)); }
+$('coCode').onclick = e => copy(e.target, e.target.textContent);
+$('coX').onclick = closeBuy;
+$('co').addEventListener('click', e => { if (e.target.id === 'co') closeBuy(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && $('co').classList.contains('open')) closeBuy(); });
+$('coTabs').querySelectorAll('button').forEach(b => b.onclick = () => {
+  method = b.dataset.m; $('coTabs').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); $('coPay').innerHTML = payHtml(); bindCopy();
+});
+document.querySelectorAll('[data-buy]').forEach(b => b.onclick = () => openBuy(b.dataset.buy));
+$('sf').querySelectorAll('button').forEach(b => b.onclick = () => {
+  $('sf').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); renderShop(b.dataset.f);
+});
+$('bPrice').innerHTML = `<s>${usd(PRICES.pack * 4)}</s>${usd(PRICES.all)}`;
+fetch('store.json').then(r => r.json()).then(s => { store = s; renderShop('all'); });
 </script>
 </body>
 </html>

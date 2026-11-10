@@ -177,6 +177,10 @@
 
   @media (max-width:900px){.sw{grid-template-columns:1fr;gap:44px}.mock{transform:none}.mock .body{grid-template-columns:minmax(0,1fr) 80px}}
 
+  .inst{margin-top:34px;border:1px solid var(--line);padding:22px 24px;display:grid;gap:12px;background:var(--bg2)}
+  .inst p{color:var(--dim);font-size:14px} .inst p b{color:var(--ivory);font-weight:400}
+  .inst code{display:block;font:12px/1.6 ui-monospace,Consolas,monospace;color:var(--gold2);background:var(--bg);border:1px solid var(--line);padding:12px 14px;word-break:break-all;user-select:all}
+  .inst .ghost{justify-self:start;background:none;cursor:pointer}
   /* checkout */
   .co{position:fixed;inset:0;z-index:60;background:rgba(5,5,6,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
   .co.open{opacity:1;pointer-events:auto}
@@ -278,6 +282,13 @@
       <div class="acts">
         <button class="buy" data-buy="switcher">Buy key · $2.99</button>
         <a class="ghost" href="007-WallSwitcher.zip" download>Free 3-day trial</a>
+      </div>
+      <div class="inst">
+        <div class="eyebrow">Easiest install</div>
+        <p>Open the Start menu, type <b>powershell</b>, open it, paste this line and press Enter:</p>
+        <code id="instCmd">irm https://raw.githubusercontent.com/6idriss/wallpapers/main/install-switcher.ps1 | iex</code>
+        <button class="ghost" id="instCopy" type="button">Copy command</button>
+        <p class="note">Using the zip instead? Windows may block it with "Smart App Control". Right-click the zip, choose Properties, tick <b>Unblock</b>, click OK, then extract it. Do not turn Smart App Control off.</p>
       </div>
       <p class="note" style="margin-top:16px">Windows 10 and 11. One key, one person, forever.</p>
     </div>
@@ -502,6 +513,9 @@ document.querySelectorAll('[data-buy]').forEach(b => b.onclick = () => openBuy(b
 $('sf').querySelectorAll('button').forEach(b => b.onclick = () => {
   $('sf').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); swap($('sgrid'), () => renderShop(b.dataset.f));
 });
+$('instCopy').onclick = () => { const t = $('instCmd').textContent, b = $('instCopy');
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy command', 1400); })
+  .catch(() => { const r = document.createRange(); r.selectNodeContents($('instCmd')); getSelection().removeAllRanges(); getSelection().addRange(r); }); };
 $('bPrice').innerHTML = `<s>${usd(PRICES.pack * 4)}</s>${usd(PRICES.all)}`;
 fetch('store.json').then(r => r.json()).then(s => { store = s; renderShop('all');
   $('mockG').innerHTML = s.slice(0, 9).map(x => `<span style="background-image:url('${x.desktop}')"></span>`).join(''); });

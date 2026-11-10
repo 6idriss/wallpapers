@@ -130,6 +130,53 @@
   .sgrid .item{margin-bottom:18px}
   .tag{position:absolute;top:14px;left:14px;z-index:1;background:rgba(11,11,12,.7);backdrop-filter:blur(6px);border:1px solid var(--line);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;color:var(--gold2)}
 
+  /* switcher */
+  #switcher{border-top:1px solid var(--line)}
+  .sw{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center}
+  .sw>*{min-width:0}
+  .sw ul{list-style:none;margin:30px 0 34px;border-top:1px solid var(--line)}
+  .sw li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--dim);font-size:14px;display:flex;gap:14px}
+  .sw li b{color:var(--gold2);font-weight:400;min-width:18px}
+  .sw .acts{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .ghost{border:1px solid var(--line);color:var(--ivory);padding:15px 26px;font:400 11px var(--sans);text-transform:uppercase;letter-spacing:.24em;transition:border-color .35s}
+  .ghost:hover{border-color:var(--gold)}
+  .mock{background:#0e0e10;border:1px solid var(--line);box-shadow:0 50px 120px -40px rgba(0,0,0,.9);padding:14px;transform:perspective(1400px) rotateY(-6deg);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .mock:hover{transform:perspective(1400px) rotateY(0)}
+  .mock .bar{display:flex;gap:6px;margin-bottom:12px}.mock .bar i{width:9px;height:9px;border-radius:50%;background:#2a2a2e}
+  .mock .mt{font:400 15px var(--serif);letter-spacing:.2em;margin:0 0 12px 2px}
+  .mock .body{display:grid;grid-template-columns:1fr 110px;gap:12px}
+  .mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+  .mock .g span{aspect-ratio:16/9;background:center/cover #18181b}
+  .mock .p{background:#141416;padding:10px;display:flex;flex-direction:column;gap:7px}
+  .mock .p em{font-style:normal;font-size:8px;letter-spacing:.2em;color:var(--gold)}
+  .mock .p s{display:block;height:7px;background:#232327;text-decoration:none}
+  .mock .p u{display:block;height:16px;background:var(--gold);margin-top:auto}
+
+  /* smooth */
+  html.lenis,html.lenis body{height:auto} .lenis.lenis-stopped{overflow:hidden} .lenis.lenis-smooth{scroll-behavior:auto!important}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  header .wrap>*{opacity:0;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) forwards}
+  header .wrap>*:nth-child(2){animation-delay:.12s} header .wrap>*:nth-child(3){animation-delay:.26s} header .wrap>*:nth-child(n+4){animation-delay:.4s}
+  nav{animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes shim{to{background-position:-200% 0}}
+  .item{background:linear-gradient(100deg,#121214 30%,#1a1a1d 50%,#121214 70%);background-size:200% 100%;animation:shim 1.5s linear infinite}
+  .item.loaded{animation:none;background:var(--bg2)}
+  .item img{opacity:0;transition:opacity .9s ease,transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
+  .item img.ok{opacity:1}
+  .grid,.sgrid{transition:opacity .35s ease}
+  .pack{transition:border-color .5s,transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
+  .pack:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+  .pack .cov i{position:absolute;inset:0;background:center/cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+  .pack:hover .cov i{transform:scale(1.07)}
+  .box{transform:translateY(18px) scale(.985);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .co.open .box{transform:none}
+  .panel>*{transition:opacity .4s}
+  .stage img{transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .35s ease}
+  .filters button,.tabs button{transition:background .35s,color .35s}
+  @media (prefers-reduced-motion:reduce){header .wrap>*,nav{opacity:1!important;animation:none!important}.item img{opacity:1}}
+
+  @media (max-width:900px){.sw{grid-template-columns:1fr;gap:44px}.mock{transform:none}.mock .body{grid-template-columns:minmax(0,1fr) 80px}}
+
   /* checkout */
   .co{position:fixed;inset:0;z-index:60;background:rgba(5,5,6,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
   .co.open{opacity:1;pointer-events:auto}
@@ -168,7 +215,7 @@
 <nav id="nav">
   <div class="wrap">
     <a class="mark" href="#">007<span>·</span>WALLS</a>
-    <div class="links"><a href="#collection">Free</a><a href="#shop">Shop</a><a href="#about">About</a><a href="https://discord.gg/FjSraGbJPa">Discord</a></div>
+    <div class="links"><a href="#collection">Free</a><a href="#shop">Shop</a><a href="#switcher">App</a><a href="#about">About</a><a href="https://discord.gg/FjSraGbJPa">Discord</a></div>
   </div>
 </nav>
 
@@ -214,6 +261,35 @@
   </div>
 </section>
 
+<section id="switcher">
+  <div class="wrap sw">
+    <div>
+      <div class="eyebrow">Windows app</div>
+      <h2 style="margin-top:24px">007 Wall Switcher</h2>
+      <p style="color:var(--dim);margin-top:22px;max-width:480px">Your whole wallpaper library in one place. Click to set, or let it change on its own.</p>
+      <ul>
+        <li><b>01</b>Add pictures or folders and see them as a gallery</li>
+        <li><b>02</b>Auto change every 1 minute to 1 day, in order or shuffled</li>
+        <li><b>03</b>Pick a screen, or a different picture on each screen</li>
+        <li><b>04</b>Change the lock screen and use a folder per time of day</li>
+        <li><b>05</b>Quick picker anywhere with Ctrl + Alt + W</li>
+        <li><b>06</b>Starts with Windows and lives in the tray</li>
+      </ul>
+      <div class="acts">
+        <button class="buy" data-buy="switcher">Buy key · $2.99</button>
+        <a class="ghost" href="007-WallSwitcher.zip" download>Free 3-day trial</a>
+      </div>
+      <p class="note" style="margin-top:16px">Windows 10 and 11. One key, one person, forever.</p>
+    </div>
+    <div class="mock" id="mock">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="mt">007 · WALL SWITCHER</div>
+      <div class="body"><div class="g" id="mockG"></div>
+        <div class="p"><em>NOW SHOWING</em><s></s><s style="width:70%"></s><em style="margin-top:6px">AUTO CHANGE</em><s></s><s style="width:55%"></s><u></u></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap about">
     <div>
@@ -239,7 +315,7 @@
   </div>
 </footer>
 
-<div class="viewer" id="viewer" aria-hidden="true">
+<div class="viewer" id="viewer" aria-hidden="true" data-lenis-prevent>
   <button class="x" id="close" aria-label="Close">×</button>
   <div class="stage"><img id="vImg" alt=""></div>
   <aside class="panel">
@@ -251,14 +327,14 @@
       <div><dt>Size</dt><dd id="vSize"></dd></div>
     </dl>
     <a class="dl" id="vDl" download>Download</a>
-    <p class="note">Free for personal use. Right-click the image and choose "Set as desktop background", or save it on your phone.</p>
+    <p class="note" id="vNote">Free for personal use. Right-click the image and choose "Set as desktop background", or save it on your phone.</p>
     <div class="nav-arrows"><button id="prev">← Prev</button><button id="next">Next →</button></div>
   </aside>
 </div>
 
 
 <div class="co" id="co" aria-hidden="true">
-  <div class="box">
+  <div class="box" data-lenis-prevent>
     <button class="x" id="coX" aria-label="Close">×</button>
     <div class="eyebrow">Checkout</div>
     <h3 id="coName">Pack</h3>
@@ -272,14 +348,34 @@
     <ol class="steps">
       <li>Send <b id="coAmt"></b> with the method above.</li>
       <li>Open a ticket in the Discord and paste your order code <b id="coCode2"></b> with a payment screenshot.</li>
-      <li>Get your full-quality files in the ticket, usually within a few hours.</li>
+      <li id="coGet">Get your full-quality files in the ticket, usually within a few hours.</li>
     </ol>
     <a class="dl" id="coGo" href="https://discord.gg/FjSraGbJPa" target="_blank" rel="noopener">Open a ticket on Discord</a>
     <p class="note">Previews on this site are watermarked. Purchased files are full 4K with no watermark.</p>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
+
+var lenis = null;
+if (window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  lenis = new Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.95 });
+  const loop = t => { lenis.raf(t); requestAnimationFrame(loop); }; requestAnimationFrame(loop);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'), t = id.length > 1 && document.querySelector(id);
+  if (!lenis) return; e.preventDefault();
+  lenis.scrollTo(t || 0, { offset: t ? -40 : 0, duration: 1.4 });
+}));
+function lock(on) { document.body.style.overflow = on ? 'hidden' : ''; if (lenis) on ? lenis.stop() : lenis.start(); }
+function markImgs(root) {
+  root.querySelectorAll('img').forEach(img => {
+    const done = () => { img.classList.add('ok'); const f = img.closest('.item'); if (f) f.classList.add('loaded'); };
+    if (img.complete && img.naturalWidth) done(); else img.addEventListener('load', done, { once: true });
+  });
+}
+function swap(el, fn) { el.style.opacity = 0; setTimeout(() => { fn(); el.style.opacity = 1; }, 300); }
 const grid = document.getElementById('grid');
 let all = [], shown = [], cur = 0;
 
@@ -295,23 +391,34 @@ function render(filter) {
       <img src="${esc(w.thumb)}" alt="${esc(w.name)} wallpaper" loading="lazy" width="${w.width}" height="${w.height}">
       <figcaption class="cap"><b>${esc(w.name)}</b><span>${w.type === 'phone' ? 'Phone' : 'Desktop'}</span></figcaption>
     </figure>`).join('');
-  grid.querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 6) * 70 + 'ms'; io.observe(el); el.onclick = () => open(i); });
+  const fs = shown;
+  grid.querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 6) * 70 + 'ms'; io.observe(el); el.onclick = () => { shown = fs; open(i); }; });
+  markImgs(grid);
   document.getElementById('count').textContent = `${shown.length} wallpaper${shown.length === 1 ? '' : 's'} · tap one to preview`;
 }
 
 const v = document.getElementById('viewer');
 function open(i) {
   cur = (i + shown.length) % shown.length; const w = shown[cur];
-  const img = document.getElementById('vImg'); img.src = w.thumb; img.alt = w.name;
+  const img = document.getElementById('vImg'); img.style.opacity = 0; img.onload = () => img.style.opacity = 1; img.src = w.thumb; img.alt = w.name;
   const full = new Image(); full.onload = () => { if (shown[cur] === w) img.src = w.file; }; full.src = w.file;
   document.getElementById('vName').textContent = w.name;
   document.getElementById('vType').textContent = w.type === 'phone' ? 'Phone' : 'Desktop';
   document.getElementById('vRes').textContent = `${w.width} × ${w.height}`;
   document.getElementById('vSize').textContent = w.size ? mb(w.size) : '—';
-  const dl = document.getElementById('vDl'); dl.href = w.file; dl.setAttribute('download', `007-${w.id}.jpg`);
-  v.classList.add('open'); v.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+  const dl = document.getElementById('vDl');
+  if (w.paid) {
+    dl.removeAttribute('href'); dl.removeAttribute('download'); dl.textContent = `Buy ${PACKS[w.pack]} pack · ${usd(PRICES.pack)}`;
+    dl.onclick = e => { e.preventDefault(); close(); openBuy(w.pack); };
+    document.getElementById('vType').textContent = `${PACKS[w.pack]} pack`;
+    document.getElementById('vNote').textContent = 'Watermarked preview. The pack includes full 4K desktop and phone versions with no watermark.';
+  } else {
+    dl.href = w.file; dl.setAttribute('download', `007-${w.id}.jpg`); dl.textContent = 'Download'; dl.onclick = null;
+    document.getElementById('vNote').textContent = 'Free for personal use. Right-click the image and choose "Set as desktop background", or save it on your phone.';
+  }
+  v.classList.add('open'); v.setAttribute('aria-hidden', 'false'); lock(1);
 }
-function close() { v.classList.remove('open'); v.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+function close() { v.classList.remove('open'); v.setAttribute('aria-hidden', 'true'); lock(0); }
 document.getElementById('close').onclick = close;
 document.getElementById('prev').onclick = () => open(cur - 1);
 document.getElementById('next').onclick = () => open(cur + 1);
@@ -322,7 +429,7 @@ addEventListener('keydown', e => {
 });
 
 document.querySelectorAll('#collection .filters button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('#collection .filters button').forEach(x => x.classList.toggle('on', x === b)); render(b.dataset.f);
+  document.querySelectorAll('#collection .filters button').forEach(x => x.classList.toggle('on', x === b)); swap(grid, () => render(b.dataset.f));
 });
 
 const nav = document.getElementById('nav');
@@ -333,9 +440,9 @@ fetch('wallpapers.json').then(r => r.json()).then(list => {
 }).catch(() => { document.getElementById('count').textContent = 'Could not load wallpapers.json'; });
 
 // ===== Shop settings: edit these =====
-const PRICES = { pack: 3.99, all: 9.99 };   // USD
-const WHISH = '';                            // your Whish number, e.g. '+961 XX XXX XXX'. Empty = sent in ticket.
-const CRYPTO = { 'USDT (TRC20)': '', 'BTC': '' }; // wallet addresses. Empty = sent in ticket.
+const PRICES = { pack: 3.99, all: 9.99, switcher: 2.99 };   // USD
+const WHISH = '+961 3 122 087';                            // your Whish number, e.g. '+961 XX XXX XXX'. Empty = sent in ticket.
+const CRYPTO = { 'USDT (BEP20 / ERC20)': '0xd9519bFBA459666480346cc7DE9CC8F48b70b652' }; // wallet addresses. Empty = sent in ticket.
 const PACKS = { abstract: 'Abstract', mono: 'Mono', city: 'City', clouds: 'Clouds' };
 
 let store = [], sShown = [], buying = 'all', method = 'whish';
@@ -346,7 +453,7 @@ function renderShop(f) {
   $('packs').innerHTML = Object.entries(PACKS).map(([k, n]) => {
     const cov = store.find(s => s.pack === k);
     return `<div class="pack${f === k ? ' on' : ''}" data-p="${k}">
-      <div class="cov" style="background-image:url('${cov ? cov.phone : ''}')"><b>${n}</b></div>
+      <div class="cov"><i style="background-image:url('${cov ? cov.phone : ''}')"></i><b>${n}</b></div>
       <div class="meta"><span>3 wallpapers · desktop + phone</span><em>${usd(PRICES.pack)}</em></div></div>`;
   }).join('');
   $('packs').querySelectorAll('.pack').forEach(el => el.onclick = () => openBuy(el.dataset.p));
@@ -355,7 +462,8 @@ function renderShop(f) {
     <figure class="item" data-i="${i}"><span class="tag">${PACKS[s.pack]} pack</span>
       <img src="${esc(s.desktop)}" alt="${esc(s.name)} wallpaper preview" loading="lazy" width="1200" height="675">
       <figcaption class="cap"><b>${esc(s.name)}</b><span>${usd(PRICES.pack)} pack</span></figcaption></figure>`).join('');
-  $('sgrid').querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 8) * 60 + 'ms'; io.observe(el); el.onclick = () => openBuy(sShown[i].pack); });
+  $('sgrid').querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 8) * 60 + 'ms'; io.observe(el); el.onclick = () => { shown = sShown.map(s => ({ ...s, paid: 1, file: s.desktop, thumb: s.desktop, width: 3840, height: 2160 })); open(i); }; });
+  markImgs($('sgrid')); markImgs($('packs'));
 }
 
 function payHtml() {
@@ -370,16 +478,17 @@ function payHtml() {
 
 function openBuy(p) {
   buying = p;
-  const all = p === 'all', price = all ? PRICES.all : PRICES.pack;
-  const code = `007-${(all ? 'SET' : p.toUpperCase())}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
-  $('coName').textContent = all ? 'Full Signature Set' : `${PACKS[p]} Pack`;
-  $('coInc').textContent = all ? '12 wallpapers · 24 files' : '3 wallpapers · 6 files';
+  const all = p === 'all', sw = p === 'switcher', price = sw ? PRICES.switcher : all ? PRICES.all : PRICES.pack;
+  const code = `007-${(sw ? 'SWITCH' : all ? 'SET' : p.toUpperCase())}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  $('coName').textContent = sw ? 'Wall Switcher Key' : all ? 'Full Signature Set' : `${PACKS[p]} Pack`;
+  $('coInc').textContent = sw ? 'Lifetime license key' : all ? '12 wallpapers · 24 files' : '3 wallpapers · 6 files';
+  $('coGet').textContent = sw ? 'Get your license key in the ticket, usually within a few hours.' : 'Get your full-quality files in the ticket, usually within a few hours.';
   $('coPrice').textContent = usd(price); $('coAmt').textContent = usd(price);
   $('coCode').textContent = code; $('coCode2').textContent = code;
   $('coPay').innerHTML = payHtml(); bindCopy();
-  $('co').classList.add('open'); $('co').setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+  $('co').classList.add('open'); $('co').setAttribute('aria-hidden', 'false'); lock(1);
 }
-function closeBuy() { $('co').classList.remove('open'); $('co').setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+function closeBuy() { $('co').classList.remove('open'); $('co').setAttribute('aria-hidden', 'true'); lock(0); }
 function copy(el, txt) { navigator.clipboard && navigator.clipboard.writeText(txt).then(() => { const o = el.textContent; el.textContent = 'Copied'; setTimeout(() => el.textContent = o, 1100); }); }
 function bindCopy() { $('coPay').querySelectorAll('[data-copy]').forEach(el => el.onclick = () => copy(el, el.dataset.copy)); }
 $('coCode').onclick = e => copy(e.target, e.target.textContent);
@@ -391,10 +500,11 @@ $('coTabs').querySelectorAll('button').forEach(b => b.onclick = () => {
 });
 document.querySelectorAll('[data-buy]').forEach(b => b.onclick = () => openBuy(b.dataset.buy));
 $('sf').querySelectorAll('button').forEach(b => b.onclick = () => {
-  $('sf').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); renderShop(b.dataset.f);
+  $('sf').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); swap($('sgrid'), () => renderShop(b.dataset.f));
 });
 $('bPrice').innerHTML = `<s>${usd(PRICES.pack * 4)}</s>${usd(PRICES.all)}`;
-fetch('store.json').then(r => r.json()).then(s => { store = s; renderShop('all'); });
+fetch('store.json').then(r => r.json()).then(s => { store = s; renderShop('all');
+  $('mockG').innerHTML = s.slice(0, 9).map(x => `<span style="background-image:url('${x.desktop}')"></span>`).join(''); });
 </script>
 </body>
 </html>

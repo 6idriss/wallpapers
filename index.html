@@ -460,7 +460,7 @@ function renderShop(f) {
   sShown = f === 'all' ? store : store.filter(s => s.pack === f);
   $('sgrid').innerHTML = sShown.map((s, i) => `
     <figure class="item" data-i="${i}"><span class="tag">${PACKS[s.pack]} pack</span>
-      <img src="${esc(s.desktop)}" alt="${esc(s.name)} wallpaper preview" loading="lazy" width="1200" height="675">
+      <img src="${esc(s.desktop)}" alt="${esc(s.name)} wallpaper preview" loading="lazy" width="960" height="540">
       <figcaption class="cap"><b>${esc(s.name)}</b><span>${usd(PRICES.pack)} pack</span></figcaption></figure>`).join('');
   $('sgrid').querySelectorAll('.item').forEach((el, i) => { el.style.transitionDelay = (i % 8) * 60 + 'ms'; io.observe(el); el.onclick = () => { shown = sShown.map(s => ({ ...s, paid: 1, file: s.desktop, thumb: s.desktop, width: 3840, height: 2160 })); open(i); }; });
   markImgs($('sgrid')); markImgs($('packs'));
